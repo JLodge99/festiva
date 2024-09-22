@@ -4,8 +4,8 @@ import { describe, expect, test } from 'vitest';
 import { Button } from '.';
 
 describe('Button shuold be rendered', () => {
-  test('should display initial count', () => {
-    const { container } = render(<Button>Hello</Button>);
-    expect(container.textContent).toMatch('Hello')
-  });
+	test('should display initial count', () => {
+		const { container } = render(<Button>Hello</Button>);
+		expect(container.textContent).toMatch('Hello');
+	});
 });

@@ -1,9 +1,6 @@
-import { Button } from '@festiva/ui'
-import './app.css'
+import { Button } from '@festiva/ui';
+import './app.css';
 
 export function App() {
-
-  return (
-    <Button>Hello</Button>
-  )
+	return <Button>Hello</Button>;
 }

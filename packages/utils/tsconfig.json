@@ -1,5 +1,7 @@
 {
-  "extends": ["../../tsconfig.app.base.json", "../../tsconfig.node.base.json"],
-  "include": [
-      "src"  ],
+	"extends": [
+		"../../tsconfig.app.base.json",
+		"../../tsconfig.node.base.json"
+	],
+	"include": ["src"]
 }

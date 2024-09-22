@@ -1,23 +1,23 @@
 {
-  "name": "@festiva/ui",
-  "private": true,
-  "version": "0.0.1",
-  "type": "module",
-  "main": "src/index.ts",
-  "scripts": {
-    "preview": "vite preview",
-    "test": "vitest run"
-  },
-  "dependencies": {
-    "preact": "^10.23.1"
-  },
-  "devDependencies": {
-    "@preact/preset-vite": "^2.9.0",
-    "@testing-library/preact": "^3.2.4",
-    "@types/node": "^22.5.5",
-    "typescript": "^5.5.3",
-    "vite": "^5.4.1",
-    "vite-plugin-dts": "^4.2.1",
-    "vitest": "^2.1.1"
-  }
+	"name": "@festiva/ui",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"main": "src/index.ts",
+	"scripts": {
+		"preview": "vite preview",
+		"test": "vitest run"
+	},
+	"dependencies": {
+		"preact": "^10.23.1"
+	},
+	"devDependencies": {
+		"@preact/preset-vite": "^2.9.0",
+		"@testing-library/preact": "^3.2.4",
+		"@types/node": "^22.5.5",
+		"typescript": "^5.5.3",
+		"vite": "^5.4.1",
+		"vite-plugin-dts": "^4.2.1",
+		"vitest": "^2.1.1"
+	}
 }
