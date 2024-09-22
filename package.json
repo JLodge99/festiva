@@ -1,0 +1,14 @@
+{
+  "name": "festiva",
+  "version": "0.0.1",
+  "description": "Web Application for displaying international holidays",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm --filter webapp dev",
+    "build:all": "pnpm -r build",
+    "test:all": "pnpm -r test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
