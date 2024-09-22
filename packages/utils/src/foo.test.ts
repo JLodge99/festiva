@@ -5,7 +5,7 @@ describe('logMessage', () => {
 	test('print should print bar', () => {
 		const consoleSpy = vi.spyOn(console, 'log');
 		print();
-		expect(consoleSpy).toHaveBeenCalled;
+		expect(consoleSpy).toHaveBeenCalled();
 
 		consoleSpy.mockRestore();
 	});

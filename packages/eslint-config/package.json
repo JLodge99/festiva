@@ -1,0 +1,26 @@
+{
+	"name": "@festiva/eslint-config",
+	"version": "0.0.1",
+	"description": "Linting configurations for preact and base typescript",
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"peerDependencies": {
+		"@eslint/js": ">=9",
+		"@types/eslint__js": ">=8",
+		"eslint": ">=9",
+		"eslint-plugin-react": ">=7",
+		"globals": ">=15",
+		"typescript-eslint": ">=8"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.11.0",
+		"@types/eslint__js": "^8.42.3",
+		"eslint": "^9.11.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-react": "^7.36.1",
+		"globals": "^15.9.0",
+		"typescript-eslint": "^8.6.0"
+	}
+}
