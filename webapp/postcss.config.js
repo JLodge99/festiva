@@ -1,3 +1,7 @@
-import postcss from '@festiva/tailwind-config/postcss.config.js';
-
-export default postcss;
+export default {
+	plugins: {
+		'postcss-import': {},
+		tailwindcss: {},
+		autoprefixer: {},
+	},
+};
