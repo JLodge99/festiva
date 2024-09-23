@@ -17,6 +17,7 @@
 	},
 	"devDependencies": {
 		"@festiva/eslint-config": "workspace:*",
+		"@festiva/tailwind-config": "workspace:*",
 		"@preact/preset-vite": "^2.9.0",
 		"@testing-library/preact": "^3.2.4",
 		"@types/node": "^22.5.5",
