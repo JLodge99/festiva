@@ -1,7 +1,10 @@
+import { Button } from './components/ui/button';
+
 export function App() {
 	return (
-		<div className="bg-red-500">
-			<button>Hello</button>
+		<div>
+			<Button variant="default">Save</Button>
+			<Button variant="destructive">Delete</Button>
 		</div>
 	);
 }
