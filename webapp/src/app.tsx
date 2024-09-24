@@ -1,15 +1,23 @@
-import { Button } from './components/ui/button';
-import { Dashboard } from './components/ui/dashboard';
+import { setBaseUrl } from '@festiva/queries/src/axios-client';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { useState } from 'react';
+import { Content } from './components/content';
+import { ThemeProvider } from './components/theme-provider';
+import { Header } from './components/ui/app-header';
 import { TooltipProvider } from './components/ui/tooltip';
 
 export function App() {
+	// Create a client
+	const [queryClient] = useState(() => new QueryClient());
+	setBaseUrl('https://date.nager.at');
 	return (
-		<div>
-			<TooltipProvider>
-				<Dashboard />
-				<Button variant="default">Save</Button>
-				<Button variant="destructive">Delete</Button>
-			</TooltipProvider>
-		</div>
+		<QueryClientProvider client={queryClient}>
+			<ThemeProvider>
+				<TooltipProvider>
+					<Header />
+					<Content />
+				</TooltipProvider>
+			</ThemeProvider>
+		</QueryClientProvider>
 	);
 }

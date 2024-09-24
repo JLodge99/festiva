@@ -3,6 +3,7 @@ import pluginReact from 'eslint-plugin-react';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import prettierlint from 'eslint-config-prettier';
+import pluginQuery from '@tanstack/eslint-plugin-query';
 
 export default [
 	{ files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
@@ -11,11 +12,13 @@ export default [
 	pluginJs.configs.recommended,
 	...tseslint.configs.recommended,
 	pluginReact.configs.flat.recommended,
+	...pluginQuery.configs['flat/recommended'],
 	prettierlint,
 	{
 		rules: {
 			'react/react-in-jsx-scope': 'off',
 			'react/jsx-uses-react': 'off',
+			'react/prop-types': 'off',
 		},
 	},
 	{

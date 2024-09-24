@@ -1,0 +1,28 @@
+{
+	"name": "@festiva/queries",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"test": "vitest run",
+		"lint": "eslint src/"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"preact": "^10.23.1"
+	},
+	"devDependencies": {
+		"@festiva/eslint-config": "workspace:*",
+		"@tanstack/react-query-persist-client": "^5.59.0",
+		"react-query-swagger": "^15.12.3"
+	},
+	"peerDependencies": {
+		"@tanstack/react-query": ">=5.0.0",
+		"axios": "^1.7.7",
+		"preact": "^10.23.1",
+		"react": "^18.3.1"
+	}
+}
