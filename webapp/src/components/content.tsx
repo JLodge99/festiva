@@ -17,6 +17,7 @@ export function Content({
 		usePublicHolidayNextPublicHolidaysWorldwideQuery();
 	const { data: localHolidays, isSuccess: localHolidaysSuccess } =
 		usePublicHolidayNextPublicHolidaysQuery({ countryCode });
+
 	return (
 		<div
 			className={cn(
@@ -26,17 +27,16 @@ export function Content({
 			{...props}
 		>
 			<div className="">
-				{worldWideSuccess && (
-					<DatesCarousel
-						dates={worldwideHolidays}
-						header={
-							<>
-								<span>Upcoming</span> (
-								<span className="text-primary">Worldwide</span>)
-							</>
-						}
-					/>
-				)}
+				<DatesCarousel
+					dates={worldwideHolidays}
+					header={
+						<>
+							<span>Upcoming</span> (
+							<span className="text-primary">Worldwide</span>)
+						</>
+					}
+					loading={!worldWideSuccess}
+				/>
 			</div>
 			<div className="">
 				{localHolidaysSuccess && (
@@ -51,6 +51,7 @@ export function Content({
 								)
 							</>
 						}
+						loading={!localHolidaysSuccess}
 					/>
 				)}
 			</div>

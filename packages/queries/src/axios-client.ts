@@ -5,7 +5,6 @@
 //----------------------
 
 /* tslint:disable */
-/* eslint-disable */
 // ReSharper disable InconsistentNaming
 
 import axios, { AxiosError } from 'axios';

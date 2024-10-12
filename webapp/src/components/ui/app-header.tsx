@@ -32,6 +32,7 @@ function Header({ className, ...props }: HeaderProps) {
 							data={isSuccess ? countriesData : []}
 							value={countryCode}
 							onValueChange={setCountryCode}
+							disabled={!isSuccess}
 						/>
 					}
 				</div>
