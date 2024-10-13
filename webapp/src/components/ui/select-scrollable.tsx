@@ -6,15 +6,23 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select';
-import { CountryV3Dto } from '@festiva/queries/src/axios-client';
 import React from 'preact/compat';
 
-interface SelectScrollableProps
+interface SelectScrollableProps<T>
 	extends React.ComponentPropsWithoutRef<typeof Select> {
-	data: CountryV3Dto[];
+	data: T[];
+	itemKey: (rowKey: T) => string;
+	itemValue: (rowKey: T) => string;
+	displayValue: (rowKey: T) => React.ReactNode;
 }
 
-export const SelectScrollable = ({ data, ...props }: SelectScrollableProps) => {
+export const SelectScrollable = <T,>({
+	data,
+	itemKey,
+	itemValue,
+	displayValue,
+	...props
+}: SelectScrollableProps<T>) => {
 	return (
 		<>
 			<Select {...props}>
@@ -23,14 +31,14 @@ export const SelectScrollable = ({ data, ...props }: SelectScrollableProps) => {
 				</SelectTrigger>
 				<SelectContent selected>
 					<SelectGroup>
-						{data.map((country, index) => {
+						{data.map((x, index) => {
 							return (
 								<SelectItem
-									key={country.countryCode}
-									value={country.countryCode}
+									key={itemKey?.(x)}
+									value={itemValue?.(x)}
 									seamless={index == 1}
 								>
-									{country.name}
+									{displayValue?.(x)}
 								</SelectItem>
 							);
 						})}

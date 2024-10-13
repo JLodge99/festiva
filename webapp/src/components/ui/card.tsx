@@ -25,26 +25,28 @@ interface ExtendedCardType
 	extends React.HTMLAttributes<HTMLDivElement>,
 		VariantProps<typeof cardVariant> {}
 
-const Card = React.forwardRef<HTMLDivElement, ExtendedCardType>(
-	({ className, border, header, ...props }, ref) => (
-		<div className="relative pb-5">
-			<div
-				ref={ref}
-				className={cn(
-					cardVariant({ border }),
-					'rounded-lg border bg-card text-card-foreground shadow-sm',
-					className,
-				)}
-				{...props}
-			/>
-			{(border == 'selected' || header == 'selected') && (
-				<Badge className="absolute z-50 bottom-2 left-0 right-0 ml-auto mr-auto w-fit">
-					Today
-				</Badge>
+const Card = React.forwardRef<
+	HTMLDivElement,
+	ExtendedCardType & { country?: string }
+>(({ className, border, header, country, ...props }, ref) => (
+	<div className="relative pb-5">
+		<div
+			ref={ref}
+			className={cn(
+				cardVariant({ border }),
+				'rounded-lg border bg-card text-card-foreground shadow-sm',
+				className,
 			)}
+			{...props}
+		/>
+		<div className="absolute z-50 bottom-2 left-0 right-0 ml-auto mr-auto w-fit">
+			{(border == 'selected' || header == 'selected') && (
+				<Badge className="">Today</Badge>
+			)}
+			{country && <Badge className="">{country}</Badge>}
 		</div>
-	),
-);
+	</div>
+));
 Card.displayName = 'Card';
 
 const CardHeader = React.forwardRef<

@@ -15,9 +15,17 @@ interface DatesCarouselProps {
 	dates: PublicHolidayV3Dto[];
 	header?: ReactNode;
 	loading?: boolean;
+	key?: number | string;
+	showCountry?: boolean;
 }
 
-export function DatesCarousel({ dates, header, loading }: DatesCarouselProps) {
+export function DatesCarousel({
+	dates,
+	header,
+	loading,
+	key,
+	showCountry,
+}: DatesCarouselProps) {
 	const isSmallDevice = useMediaQuery('not all and (min-width: 640px)');
 	const isNotLargeDevice = useMediaQuery('not all and (min-width: 1024px)');
 	return (
@@ -33,6 +41,7 @@ export function DatesCarousel({ dates, header, loading }: DatesCarouselProps) {
 						align: 'start',
 					}}
 					className="w-full min-w-64"
+					key={key}
 				>
 					<CarouselContent>
 						{dates.map((holiday, index) => (
@@ -43,6 +52,7 @@ export function DatesCarousel({ dates, header, loading }: DatesCarouselProps) {
 								<DateCard
 									data={holiday}
 									selected={index == 0}
+									showCountry={showCountry}
 								/>
 							</CarouselItem>
 						))}

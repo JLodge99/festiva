@@ -13,10 +13,8 @@ export function App() {
 	return (
 		<QueryClientProvider client={queryClient}>
 			<ThemeProvider>
-				<TooltipProvider>
-					<Header />
-					<Content />
-				</TooltipProvider>
+				<Header />
+				<Content />
 			</ThemeProvider>
 		</QueryClientProvider>
 	);
