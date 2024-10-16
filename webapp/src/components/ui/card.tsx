@@ -41,9 +41,9 @@ const Card = React.forwardRef<
 		/>
 		<div className="absolute z-50 bottom-2 left-0 right-0 ml-auto mr-auto w-fit">
 			{(border == 'selected' || header == 'selected') && (
-				<Badge className="">Today</Badge>
+				<Badge>Today</Badge>
 			)}
-			{country && <Badge className="">{country}</Badge>}
+			{country && <Badge>{country}</Badge>}
 		</div>
 	</div>
 ));

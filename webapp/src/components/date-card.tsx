@@ -18,7 +18,7 @@ export const DateCard = ({ data, showCountry, ...props }: DateCardProps) => {
 	});
 	return (
 		<Card
-			className="min-w-16"
+			className="min-w-16 cursor-default select-none"
 			{...props}
 			border={isToday ? 'selected' : 'default'}
 			country={
