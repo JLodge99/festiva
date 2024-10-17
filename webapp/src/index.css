@@ -65,3 +65,11 @@
 		@apply bg-background text-foreground;
 	}
 }
+
+.st0 {
+	fill: #1b1f24;
+}
+
+.st1 {
+	fill: #ffffff;
+}

@@ -1,7 +1,10 @@
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';
+import GhInvertoDark from '../../assets/GitHub_Invertocat_Dark.svg?react';
+import GhInvertoLight from '../../assets/GitHub_Invertocat_Light.svg?react';
 import { ModeToggle } from '../mode-toggle';
+import { Button } from './button';
 
 export interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
 	test?: boolean;
@@ -20,8 +23,18 @@ function Header({ className, ...props }: HeaderProps) {
 				<h1 className="w-full text-center font-bold text-2xl flex justify-center max-sm:col-span-2 text-primary col-start-2">
 					Festiva
 				</h1>
-				<div className="col-start-8 flex justify-end items-center">
+				<div className="col-start-8 flex justify-end items-center gap-2">
 					<ModeToggle />
+					<a
+						href="https://github.com/JLodge99"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<Button variant="ghost" size="icon">
+							<GhInvertoDark className="h-[2rem] w-[2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+							<GhInvertoLight className="absolute h-[2rem] w-[2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+						</Button>
+					</a>
 				</div>
 			</div>
 		</div>
