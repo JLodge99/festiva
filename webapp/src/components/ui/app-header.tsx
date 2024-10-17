@@ -25,16 +25,20 @@ function Header({ className, ...props }: HeaderProps) {
 				</h1>
 				<div className="col-start-8 flex justify-end items-center gap-2">
 					<ModeToggle />
-					<a
-						href="https://github.com/JLodge99"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<Button variant="ghost" size="icon">
-							<GhInvertoDark className="h-[2rem] w-[2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-							<GhInvertoLight className="absolute h-[2rem] w-[2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-						</Button>
-					</a>
+					<Button variant="ghost" size="icon">
+						<a
+							href="https://github.com/JLodge99"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="w-full h-full"
+							title="Github Link"
+						>
+							<div>
+								<GhInvertoDark className=" absolute h-[2rem] w-[2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+								<GhInvertoLight className="absolute h-[2rem] w-[2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+							</div>
+						</a>
+					</Button>
 				</div>
 			</div>
 		</div>
