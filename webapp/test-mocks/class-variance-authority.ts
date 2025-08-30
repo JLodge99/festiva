@@ -1,10 +1,22 @@
-export function cva(base: string, _opts?: any) {
-  // return a function that accepts an object and returns base + any extra className
+export function cva(base: string, opts?: any) {
+  // simple implementation that supports variants and defaultVariants
   return (args: any = {}) => {
-    // allow being called with ({ className }) or ({ variant, size, className })
-    const cls = args?.className || '';
-    if (typeof cls === 'string' && cls.trim()) return (base + ' ' + cls).trim();
-    return base;
+    const parts: string[] = [];
+    if (base && base.trim()) parts.push(base.trim());
+
+    if (opts && opts.variants) {
+      for (const key of Object.keys(opts.variants)) {
+        const value = args?.[key] ?? opts.defaultVariants?.[key];
+        if (value && opts.variants[key] && opts.variants[key][value]) {
+          parts.push(opts.variants[key][value]);
+        }
+      }
+    }
+
+    const cls = args?.className ?? '';
+    if (typeof cls === 'string' && cls.trim()) parts.push(cls.trim());
+
+    return parts.join(' ').trim();
   };
 }
 
