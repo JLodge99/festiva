@@ -27,7 +27,11 @@ describe('DateCard', () => {
 
     render(<DateCard data={data} showCountry />);
 
-    // Badge "Today" should be present due to isToday
-    expect(screen.getByText('Today')).toBeTruthy();
+    // There may be multiple "Today" nodes (title and badge). Ensure at
+    // least one exists and that a badge-like element is present.
+    const todays = screen.getAllByText('Today');
+    expect(todays.length).toBeGreaterThan(0);
+    const badge = todays.find((n) => n.parentElement?.className.includes('inline-flex'));
+    expect(badge).toBeTruthy();
   });
 });
