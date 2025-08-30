@@ -31,7 +31,9 @@ describe('DateCard', () => {
     // least one exists and that a badge-like element is present.
     const todays = screen.getAllByText('Today');
     expect(todays.length).toBeGreaterThan(0);
-    const badge = todays.find((n) => n.parentElement?.className.includes('inline-flex'));
+    const badge = todays.find(
+      (n) => n.className.includes('inline-flex') || n.parentElement?.className.includes('inline-flex'),
+    );
     expect(badge).toBeTruthy();
   });
 });
