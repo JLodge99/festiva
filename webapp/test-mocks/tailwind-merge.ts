@@ -10,28 +10,31 @@ export function twMerge(input: string) {
     lastIndex.set(key + '|' + p, i);
   });
 
-  // For deduplication we want the last occurrence for each prefix, but
-  // preserve the order of those last occurrences.
-  const chosen = new Map<string, { token: string; idx: number }>();
+  // More accurate simple behavior:
+  // - Tokens without a dash (e.g. "active") are preserved as-is.
+  // - Tokens with a dash (e.g. "px-2", "px-4") are deduplicated by their
+  //   prefix (the segment before the first '-') keeping the last occurrence.
+  // - If both dashed and undashed tokens share the same prefix (e.g. "active"
+  //   and "active-state"), do NOT dedupe — keep both.
+  const dashedLast = new Map<string, { token: string; idx: number }>();
+  const plain: { token: string; idx: number }[] = [];
+
   parts.forEach((p, i) => {
-    const prefix = p.split('-')[0];
-    // find last index among tokens with this prefix
-    // pick the token that has the highest index
-    // we compute by scanning parts for simplicity (small inputs in tests)
-    let lastTok = p;
-    let lastI = i;
-    for (let j = i; j < parts.length; j++) {
-      if (parts[j].split('-')[0] === prefix) {
-        lastTok = parts[j];
-        lastI = j;
-      }
+    if (p.includes('-')) {
+      const prefix = p.split('-')[0];
+      // record last occurrence for dashed tokens
+      dashedLast.set(prefix, { token: p, idx: i });
+    } else {
+      // plain tokens always preserved
+      plain.push({ token: p, idx: i });
     }
-    chosen.set(prefix, { token: lastTok, idx: lastI });
   });
 
-  // sort chosen tokens by their last-occurrence index
-  return Array.from(chosen.values())
-    .sort((a, b) => a.idx - b.idx)
-    .map((v) => v.token)
-    .join(' ');
+  // combine preserved plain tokens and the chosen dashed tokens, then sort
+  const combined = [
+    ...plain,
+    ...Array.from(dashedLast.values()),
+  ].sort((a, b) => a.idx - b.idx);
+
+  return combined.map((v) => v.token).join(' ');
 }
