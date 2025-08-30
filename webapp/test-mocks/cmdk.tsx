@@ -5,16 +5,22 @@ const wrap = (tag = 'div') => ({ children, ...props }: any) => {
   return h(P, props, children);
 };
 
-export const Command = wrap('div');
-export const Input = wrap('input');
-export const List = wrap('div');
-export const Empty = wrap('div');
-export const Group = wrap('div');
-export const Separator = wrap('div');
-export const Item = wrap('div');
+const Input = wrap('input');
+const List = wrap('div');
+const Empty = wrap('div');
+const Group = wrap('div');
+const Separator = wrap('div');
+const Item = wrap('div');
 
-export default {
-  Command,
+// set displayName so consumer code can access .displayName safely
+Input.displayName = 'CommandInput';
+List.displayName = 'CommandList';
+Empty.displayName = 'CommandEmpty';
+Group.displayName = 'CommandGroup';
+Separator.displayName = 'CommandSeparator';
+Item.displayName = 'CommandItem';
+
+export const Command = {
   Input,
   List,
   Empty,
@@ -22,3 +28,5 @@ export default {
   Separator,
   Item,
 };
+
+export default Command;
