@@ -21,14 +21,28 @@ vi.mock('clsx', () => ({
 
 vi.mock('tailwind-merge', () => ({
   twMerge: (input: string) => {
-    // naive merge: for tokens with same prefix (before '-') keep last
+    if (!input) return '';
     const parts = input.split(/\s+/).filter(Boolean);
-    const map = new Map();
-    parts.forEach(p => {
-      const key = p.split('-')[0];
-      map.set(key + '|' + (p.includes('-') ? p.split('-')[1] : ''), p);
+    // pick the last token for each prefix (before first '-') and preserve
+    // the order of those last occurrences
+    const chosen = new Map();
+    parts.forEach((p, i) => {
+      const prefix = p.split('-')[0];
+      // find last occurrence for this prefix
+      let last = p;
+      let lastIdx = i;
+      for (let j = i; j < parts.length; j++) {
+        if (parts[j].split('-')[0] === prefix) {
+          last = parts[j];
+          lastIdx = j;
+        }
+      }
+      chosen.set(prefix, { token: last, idx: lastIdx });
     });
-    return Array.from(map.values()).join(' ');
+    return Array.from(chosen.values())
+      .sort((a: any, b: any) => a.idx - b.idx)
+      .map((v: any) => v.token)
+      .join(' ');
   }
 }));
 
