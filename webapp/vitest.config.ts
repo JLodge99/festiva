@@ -15,6 +15,7 @@ export default defineConfig({
       '@radix-ui/react-dropdown-menu': path.resolve(__dirname, './test-mocks/radix-dropdown-menu.tsx'),
       '@radix-ui/react-separator': path.resolve(__dirname, './test-mocks/radix-separator.tsx'),
       'cmdk': path.resolve(__dirname, './test-mocks/cmdk.tsx'),
+      '@radix-ui/react-dialog': path.resolve(__dirname, './test-mocks/radix-dialog.tsx'),
     },
   },
   test: {
