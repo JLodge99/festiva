@@ -1,28 +1,26 @@
 import { render, screen, fireEvent } from '@testing-library/preact';
 import { describe, expect, test, vi } from 'vitest';
-import { ModeToggle } from './mode-toggle';
 import { h } from 'preact';
 
 // Provide a simple ThemeProvider mock harness to capture setTheme
-import * as Theme from './theme-provider';
 
 function MockProvider({ children }:{children:any}){
-  // create a simple provider that supplies setTheme
-  // @ts-ignore
-  const original = Theme.useTheme;
-  // stubbed provider isn't necessary, we'll stub the hook
   return children;
 }
 
 describe('ModeToggle', () => {
   test('renders trigger and menu items, clicking items calls setTheme', async () => {
     const setTheme = vi.fn();
-    // stub useTheme to return our setter
-    vi.stubModule('../theme-provider', () => ({
-      // re-export everything but override useTheme
-      ...require('../theme-provider'),
+
+    // mock the theme-provider module before importing ModeToggle
+    vi.mock('./theme-provider', () => ({
+      ThemeProvider: ({ children }: any) => children,
       useTheme: () => ({ theme: 'system', setTheme }),
     }));
+
+    // import after mock so the module uses the mocked hook
+    const { ModeToggle } = await import('./mode-toggle');
+    const { render, screen, fireEvent } = await import('@testing-library/preact');
 
     render(<ModeToggle />);
 
@@ -45,7 +43,8 @@ describe('ModeToggle', () => {
     expect(setTheme).toHaveBeenCalledWith('dark');
     expect(setTheme).toHaveBeenCalledWith('system');
 
-    // cleanup stub
-    vi.unstubAllModules && vi.unstubAllModules();
+    // cleanup
+    vi.resetModules();
+    vi.clearAllMocks();
   });
 });
