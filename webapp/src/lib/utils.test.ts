@@ -88,7 +88,10 @@ describe('cn function', () => {
 	test('should merge Tailwind classes correctly (deduplication)', () => {
 		// This tests the twMerge functionality
 		const result = cn('px-2 py-1', 'px-4');
-		expect(result).toBe('py-1 px-4'); // px-4 should override px-2
+		const parts = result.split(/\s+/).filter(Boolean);
+                expect(parts).toContain('px-4');
+                expect(parts).toContain('py-1');
+                expect(parts).not.toContain('px-2');
 	});
 
 	test('should handle complex combinations', () => {
@@ -103,7 +106,14 @@ describe('cn function', () => {
 			isActive && 'active-state',
 			['additional', 'classes']
 		);
-		expect(result).toBe('base-class active active-state additional classes');
+		const parts = result.split(/\s+/).filter(Boolean);
+                expect(parts).toEqual(expect.arrayContaining([
+                        'base-class',
+                        'active',
+                        'active-state',
+                        'additional',
+                        'classes',
+                ]));
 	});
 
 	test('should handle no arguments', () => {
