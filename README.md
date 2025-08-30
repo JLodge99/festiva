@@ -1,3 +1,5 @@
+# Festiva
+
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 
 <a id="readme-top"></a>
@@ -20,6 +22,8 @@
 -->
 
 [![MIT License][license-shield]][license-url]
+[![Tests][tests-shield]][tests-url]
+[![Coverage][coverage-shield]][coverage-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
@@ -53,6 +57,7 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#testing">Testing</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -68,7 +73,7 @@
 
 ## About The Project
 
-Single Page Application showcasing Public Holiday Api [Nager.Date](https://date.nager.at/Api) using preact and vite.
+Single Page Application showcasing Public Holiday API [Nager.Date](https://date.nager.at/Api) using Preact and Vite.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -84,23 +89,52 @@ Single Page Application showcasing Public Holiday Api [Nager.Date](https://date.
 
 ## Getting Started
 
-### Install packages
+### Prerequisites
 
--   ```sh
-    pnpm install
-    ```
+This project uses pnpm as the package manager. Make sure you have Node.js and pnpm installed on your system.
+
+### Installation
+
+1. Clone the repository
+   ```sh
+   git clone https://github.com/JLodge99/festiva.git
+   cd festiva
+   ```
+
+2. Install packages
+   ```sh
+   pnpm install
+   ```
 
 ### Build
 
--   ```sh
-    pnpm build
-    ```
+Build the project for production:
+
+```sh
+pnpm build
+```
 
 ### Development
 
--   ```sh
-    pnpm dev
-    ```
+Start the development server:
+
+```sh
+pnpm dev
+```
+
+### Testing
+
+Run tests:
+
+```sh
+pnpm test
+```
+
+Run tests with coverage:
+
+```sh
+pnpm test:coverage
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -108,9 +142,13 @@ Single Page Application showcasing Public Holiday Api [Nager.Date](https://date.
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Festiva is a web application that displays international holidays from around the world. Simply visit the application to:
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+- Browse holidays by country
+- View upcoming holidays and celebrations
+- Explore different cultural celebrations worldwide
+
+Visit the live demo at [festiva.xyz](https://festiva.xyz/) to see the application in action.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -118,10 +156,11 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
--   [ ] Feature 1
--   [ ] Feature 2
--   [ ] Feature 3
-    -   [ ] Nested Feature
+-   [ ] Add holiday search functionality
+-   [ ] Implement calendar view
+-   [ ] Add holiday notifications
+-   [ ] Support for custom holiday lists
+-   [ ] Mobile app version
 
 See the [open issues](https://github.com/JLodge99/festiva/issues) for a full list of proposed features (and known issues).
 
@@ -154,7 +193,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See [`LICENSE.txt`](LICENSE.txt) for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -162,13 +201,20 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Jerold Lodge - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Jerold Lodge - [GitHub](https://github.com/JLodge99)
 
 Project Link: [https://github.com/JLodge99/festiva](https://github.com/JLodge99/festiva)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
+
+## Acknowledgments
+
+* [Nager.Date API](https://date.nager.at/Api) - For providing the public holiday data
+* [Best-README-Template](https://github.com/othneildrew/Best-README-Template) - For the README template
+* [Preact](https://preactjs.com/) - Fast 3kB alternative to React
+* [Vite](https://vite.dev/) - Next generation frontend tooling
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -184,7 +230,11 @@ Project Link: [https://github.com/JLodge99/festiva](https://github.com/JLodge99/
 [issues-shield]: https://img.shields.io/github/issues/JLodge99/festiva.svg?style=for-the-badge
 [issues-url]: https://github.com/JLodge99/festiva/issues
 [license-shield]: https://img.shields.io/github/license/JLodge99/festiva.svg?style=for-the-badge
-[license-url]: https://github.com/JLodge99/festiva/blob/master/LICENSE.txt
+[license-url]: https://github.com/JLodge99/festiva/blob/main/LICENSE.txt
+[tests-shield]: https://img.shields.io/github/actions/workflow/status/JLodge99/festiva/test.yml?branch=main&style=for-the-badge&label=tests
+[tests-url]: https://github.com/JLodge99/festiva/actions/workflows/test.yml
+[coverage-shield]: https://img.shields.io/codecov/c/github/JLodge99/festiva?style=for-the-badge
+[coverage-url]: https://codecov.io/gh/JLodge99/festiva
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
