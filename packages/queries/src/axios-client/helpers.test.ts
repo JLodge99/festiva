@@ -21,7 +21,7 @@ describe('trimArrayEnd function', () => {
 	});
 
 	test('should handle empty array', () => {
-		const input: any[] = [];
+		const input: unknown[] = [];
 		const result = trimArrayEnd(input);
 		expect(result).toEqual([]);
 	});
