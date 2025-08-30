@@ -17,7 +17,8 @@ describe('Select primitives', () => {
       </Select>,
     );
 
-    expect(screen.getByText('Choose')).toBeTruthy();
+    const trigger = screen.getByRole('button');
+    expect(trigger.textContent).toContain('Choose');
     expect(screen.getByText('One')).toBeTruthy();
     expect(screen.getByText('A')).toBeTruthy();
     expect(screen.getByText('B')).toBeTruthy();
