@@ -24,5 +24,32 @@ export default defineConfig({
 			// Webapp - Use the existing webapp vitest config
 			'./webapp/vitest.config.ts',
 		],
+		// Global coverage configuration
+		coverage: {
+			provider: 'v8',
+			reporter: ['text', 'json', 'html', 'lcov'],
+			reportsDirectory: './coverage',
+			exclude: [
+				'node_modules/**',
+				'dist/**',
+				'build/**',
+				'coverage/**',
+				'**/*.config.{js,ts}',
+				'**/*.setup.{js,ts}',
+				'**/*.test.{js,ts,tsx}',
+				'**/*.spec.{js,ts,tsx}',
+				'**/test/**',
+				'**/tests/**',
+			],
+			include: [
+				'packages/*/src/**/*.{js,ts}',
+				'webapp/src/**/*.{js,ts,tsx}',
+			],
+			all: true,
+			lines: 80,
+			functions: 80,
+			branches: 80,
+			statements: 80,
+		},
 	},
 })

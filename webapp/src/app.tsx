@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Content } from './components/content';
 import { ThemeProvider } from './components/theme-provider';
 import { Header } from './components/ui/app-header';
-import { TooltipProvider } from './components/ui/tooltip';
+
 
 export function App() {
 	// Create a client
