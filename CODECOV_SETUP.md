@@ -25,72 +25,21 @@ This repository is configured to automatically upload test coverage to Codecov v
 
 ## Files Created
 
+- `.github/workflows/test-and-coverage.yml` - GitHub Actions workflow
 - `codecov.yml` - Codecov configuration
 - Updated `vitest.config.ts` - Coverage configuration for Vitest
 - `CODECOV_SETUP.md` - This setup guide
 
 ## GitHub Actions Workflow
 
-Due to token permissions, the GitHub Actions workflow needs to be added manually. Create the file `.github/workflows/test-and-coverage.yml` with the following content:
+The GitHub Actions workflow (`.github/workflows/test-and-coverage.yml`) has been created with the following features:
 
-```yaml
-name: Test and Coverage
-
-on:
-  push:
-    branches: [ main, develop ]
-  pull_request:
-    branches: [ main, develop ]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x]
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v4
-      with:
-        version: latest
-
-    - name: Setup Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'
-
-    - name: Install dependencies
-      run: pnpm install --frozen-lockfile
-
-    - name: Run linting
-      run: pnpm lint
-
-    - name: Run tests with coverage
-      run: pnpm test:coverage
-
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v4
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./coverage/lcov.info
-        flags: unittests
-        name: codecov-umbrella
-        fail_ci_if_error: false
-        verbose: true
-
-    - name: Upload coverage reports as artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: coverage-reports-${{ matrix.node-version }}
-        path: coverage/
-        retention-days: 30
-```
+- **Multi-version testing**: Tests on Node.js 18.x and 20.x
+- **Automated triggers**: Runs on push/PR to main and develop branches
+- **Comprehensive testing**: Includes linting and test coverage
+- **Codecov integration**: Automatically uploads coverage reports
+- **Artifact storage**: Saves coverage reports for 30 days
+- **Fail-safe**: Won't fail CI if Codecov upload fails
 
 ## Coverage Badge
 
