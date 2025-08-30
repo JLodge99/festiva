@@ -220,8 +220,8 @@ Project Link: [https://github.com/JLodge99/festiva](https://github.com/JLodge99/
 [issues-url]: https://github.com/JLodge99/festiva/issues
 [license-shield]: https://img.shields.io/github/license/JLodge99/festiva.svg?style=for-the-badge
 [license-url]: https://github.com/JLodge99/festiva/blob/main/LICENSE.txt
-[coverage-shield]: https://img.shields.io/badge/coverage-3.45%25-red?style=for-the-badge
-[coverage-url]: #testing
+[coverage-shield]: https://img.shields.io/codecov/c/github/JLodge99/festiva?style=for-the-badge
+[coverage-url]: https://codecov.io/gh/JLodge99/festiva
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
