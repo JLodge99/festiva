@@ -20,6 +20,7 @@
 -->
 
 [![MIT License][license-shield]][license-url]
+[![Code Coverage][coverage-shield]][coverage-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
@@ -29,7 +30,7 @@
     <img src="webapp/public/apple-touch-icon.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Festiva</h3>
+<h1 align="center">Festiva</h1>
 
   <p align="center">
     Web Application for displaying international holidays
@@ -68,7 +69,7 @@
 
 ## About The Project
 
-Single Page Application showcasing Public Holiday Api [Nager.Date](https://date.nager.at/Api) using preact and vite.
+Single Page Application showcasing Public Holiday API [Nager.Date](https://date.nager.at/Api) using Preact and Vite.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -126,9 +127,17 @@ See [TESTING.md](./TESTING.md) for detailed testing configuration and workspace 
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Visit the [live demo](https://festiva.xyz/) to explore international holidays by country and date. The application provides an intuitive interface to browse public holidays from around the world using the Nager.Date API.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+### Local Development
+
+After installation, start the development server:
+
+```sh
+pnpm dev
+```
+
+The application will be available at `http://localhost:5173` (or the next available port).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -136,10 +145,11 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
--   [ ] Feature 1
--   [ ] Feature 2
--   [ ] Feature 3
-    -   [ ] Nested Feature
+-   [ ] Add holiday search functionality
+-   [ ] Implement calendar view
+-   [ ] Add holiday notifications
+-   [ ] Support for custom holiday lists
+-   [ ] Mobile app version
 
 See the [open issues](https://github.com/JLodge99/festiva/issues) for a full list of proposed features (and known issues).
 
@@ -172,7 +182,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See [`LICENSE.txt`](./LICENSE.txt) for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -180,13 +190,20 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Jerold Lodge - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Jerold Lodge
 
 Project Link: [https://github.com/JLodge99/festiva](https://github.com/JLodge99/festiva)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
+
+## Acknowledgments
+
+-   [Nager.Date API](https://date.nager.at/Api) for providing comprehensive public holiday data
+-   [Preact](https://preactjs.com/) for the lightweight React alternative
+-   [Vite](https://vite.dev/) for the fast build tool and development server
+-   [Best-README-Template](https://github.com/othneildrew/Best-README-Template) for the README structure
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -202,7 +219,9 @@ Project Link: [https://github.com/JLodge99/festiva](https://github.com/JLodge99/
 [issues-shield]: https://img.shields.io/github/issues/JLodge99/festiva.svg?style=for-the-badge
 [issues-url]: https://github.com/JLodge99/festiva/issues
 [license-shield]: https://img.shields.io/github/license/JLodge99/festiva.svg?style=for-the-badge
-[license-url]: https://github.com/JLodge99/festiva/blob/master/LICENSE.txt
+[license-url]: https://github.com/JLodge99/festiva/blob/main/LICENSE.txt
+[coverage-shield]: https://img.shields.io/badge/coverage-3.45%25-red?style=for-the-badge
+[coverage-url]: #testing
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
