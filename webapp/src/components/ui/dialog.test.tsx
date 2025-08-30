@@ -30,7 +30,8 @@ describe('Dialog primitives', () => {
     expect(screen.getByText('My Title')).toBeTruthy();
     expect(screen.getByText('desc')).toBeTruthy();
 
-    fireEvent.click(screen.getByText('Close'));
+    closes = screen.getAllByText('Close');
+    fireEvent.click(closes[0]);
     expect(onClose).toHaveBeenCalled();
   });
 });
