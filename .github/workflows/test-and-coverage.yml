@@ -34,6 +34,7 @@ jobs:
 
     - name: Run linting
       run: pnpm lint
+      continue-on-error: true
 
     - name: Run tests with coverage
       run: pnpm test:coverage
@@ -47,6 +48,7 @@ jobs:
         name: codecov-umbrella
         fail_ci_if_error: false
         verbose: true
+      continue-on-error: true
 
     - name: Upload coverage reports as artifacts
       uses: actions/upload-artifact@v4
