@@ -13,6 +13,7 @@ export default defineConfig({
       'tailwind-merge': path.resolve(__dirname, './test-mocks/tailwind-merge.ts'),
       '@radix-ui/react-slot': path.resolve(__dirname, './test-mocks/radix-slot.ts'),
       '@radix-ui/react-dropdown-menu': path.resolve(__dirname, './test-mocks/radix-dropdown-menu.tsx'),
+      '@radix-ui/react-separator': path.resolve(__dirname, './test-mocks/radix-separator.tsx'),
     },
   },
   test: {
