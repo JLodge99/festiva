@@ -1,10 +1,10 @@
 import { render, screen, fireEvent } from '@testing-library/preact';
 import { describe, expect, test, vi } from 'vitest';
-import { ModeToggle } from '../mode-toggle';
+import { ModeToggle } from './mode-toggle';
 import { h } from 'preact';
 
 // Provide a simple ThemeProvider mock harness to capture setTheme
-import * as Theme from '../theme-provider';
+import * as Theme from './theme-provider';
 
 function MockProvider({ children }:{children:any}){
   // create a simple provider that supplies setTheme
