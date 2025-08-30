@@ -102,6 +102,24 @@ Single Page Application showcasing Public Holiday Api [Nager.Date](https://date.
     pnpm dev
     ```
 
+### Testing
+
+-   ```sh
+    # Run all tests
+    pnpm test
+    
+    # Run tests in watch mode
+    pnpm test:watch
+    
+    # Run tests with UI
+    pnpm test:ui
+    
+    # Run tests with coverage
+    pnpm test:coverage
+    ```
+
+See [TESTING.md](./TESTING.md) for detailed testing configuration and workspace setup.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->

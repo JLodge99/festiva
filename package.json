@@ -6,14 +6,26 @@
 	"scripts": {
 		"dev": "pnpm --filter webapp dev",
 		"build": "pnpm -r build",
-		"test": "pnpm -r test",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:ui": "vitest --ui",
+		"test:coverage": "vitest run --coverage",
+		"test:packages": "pnpm -r test",
 		"lint": "pnpm -r lint"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+		"@preact/preset-vite": "^2.9.1",
+		"@testing-library/jest-dom": "^6.6.3",
+		"@testing-library/preact": "^3.2.4",
+		"@vitest/coverage-v8": "^3.2.4",
+		"@vitest/ui": "^3.2.4",
 		"depcheck": "^1.4.7",
-		"prettier": "3.6.2"
+		"jsdom": "^25.0.1",
+		"prettier": "3.6.2",
+		"typescript": "^5.9.2",
+		"vitest": "^3.2.4"
 	}
 }
