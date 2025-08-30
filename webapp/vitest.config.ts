@@ -8,6 +8,10 @@ export default defineConfig({
     mainFields: ['module'],
     alias: {
       '@': path.resolve(__dirname, './src'),
+      // map some heavy frontend libs to lightweight test mocks for CI
+      'class-variance-authority': path.resolve(__dirname, './test-mocks/class-variance-authority.ts'),
+      'tailwind-merge': path.resolve(__dirname, './test-mocks/tailwind-merge.ts'),
+      '@radix-ui/react-slot': path.resolve(__dirname, './test-mocks/radix-slot.ts'),
     },
   },
   test: {
