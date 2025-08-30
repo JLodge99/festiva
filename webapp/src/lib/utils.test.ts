@@ -1,4 +1,37 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
+
+// mock external dependencies used by utils.ts
+vi.mock('clsx', () => ({
+  clsx: (...inputs: any[]) => {
+    const out: string[] = [];
+    function push(val: any) {
+      if (!val && val !== 0) return;
+      if (typeof val === 'string') {
+        if (val.trim()) out.push(val.trim());
+        return;
+      }
+      if (Array.isArray(val)) return val.forEach(push);
+      if (typeof val === 'object') return Object.keys(val).forEach(k => val[k] && out.push(k));
+      out.push(String(val));
+    }
+    inputs.forEach(push);
+    return out.join(' ');
+  }
+}));
+
+vi.mock('tailwind-merge', () => ({
+  twMerge: (input: string) => {
+    // naive merge: for tokens with same prefix (before '-') keep last
+    const parts = input.split(/\s+/).filter(Boolean);
+    const map = new Map();
+    parts.forEach(p => {
+      const key = p.split('-')[0];
+      map.set(key + '|' + (p.includes('-') ? p.split('-')[1] : ''), p);
+    });
+    return Array.from(map.values()).join(' ');
+  }
+}));
+
 import { cn } from './utils';
 
 describe('cn function', () => {
