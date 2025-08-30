@@ -17,6 +17,7 @@ export default defineConfig({
       'cmdk': path.resolve(__dirname, './test-mocks/cmdk.tsx'),
       '@radix-ui/react-dialog': path.resolve(__dirname, './test-mocks/radix-dialog.tsx'),
       '@radix-ui/react-popover': path.resolve(__dirname, './test-mocks/radix-popover.tsx'),
+      '@radix-ui/react-select': path.resolve(__dirname, './test-mocks/radix-select.tsx'),
     },
   },
   test: {
