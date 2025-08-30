@@ -13,6 +13,7 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"prettier": "3.3.3"
+		"depcheck": "^1.4.7",
+		"prettier": "3.6.2"
 	}
 }
