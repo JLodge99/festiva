@@ -18,23 +18,21 @@ describe('ThemeProvider and useTheme', () => {
     // reset document classes and localStorage before each test
     document.documentElement.className = '';
     localStorage.clear();
-    // default matchMedia mock
-    // provide a basic implementation if not present
-    // vi.stubGlobal is used in tests below when required
-    if (!('matchMedia' in window)) {
-      // @ts-ignore
-      window.matchMedia = () => ({ matches: false, addListener: () => {}, removeListener: () => {} });
-    }
+    // ensure matchMedia exists (jsdom may not implement it)
+    // @ts-ignore
+    window.matchMedia = window.matchMedia ?? ((query: string) => ({ matches: false, addListener: () => {}, removeListener: () => {} }));
   });
 
-  test('useTheme throws when used outside ThemeProvider', () => {
+  test('useTheme returns default context when used outside ThemeProvider', () => {
     function Consumer() {
       // eslint-disable-next-line react-hooks/rules-of-hooks
-      useTheme();
-      return null;
+      const ctx = useTheme();
+      return <span data-testid="outside">{ctx.theme}</span>;
     }
 
-    expect(() => render(<Consumer />)).toThrow('useTheme must be used within a ThemeProvider');
+    render(<Consumer />);
+    const el = screen.getByTestId('outside');
+    expect(el.textContent).toBe('system');
   });
 
   test('reads default theme from localStorage and applies class', async () => {
