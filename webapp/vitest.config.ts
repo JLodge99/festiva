@@ -16,6 +16,7 @@ export default defineConfig({
       '@radix-ui/react-separator': path.resolve(__dirname, './test-mocks/radix-separator.tsx'),
       'cmdk': path.resolve(__dirname, './test-mocks/cmdk.tsx'),
       '@radix-ui/react-dialog': path.resolve(__dirname, './test-mocks/radix-dialog.tsx'),
+      '@radix-ui/react-popover': path.resolve(__dirname, './test-mocks/radix-popover.tsx'),
     },
   },
   test: {
