@@ -3,6 +3,7 @@
 	"version": "0.0.1",
 	"description": "Web Application for displaying international holidays",
 	"main": "index.js",
+	"type": "module",
 	"scripts": {
 		"dev": "pnpm --filter webapp dev",
 		"build": "pnpm -r build",
