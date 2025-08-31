@@ -5,6 +5,23 @@ import { h } from 'preact';
 // Mock useMediaQuery to control responsive branches
 vi.mock('@uidotdev/usehooks', () => ({ useMediaQuery: (q: string) => q.includes('min-width: 640px') ? false : true }));
 
+// Mock embla-carousel-react (used by the Carousel) to avoid React hooks incompat
+vi.mock('embla-carousel-react', () => ({
+  default: (_opts?: any, _plugins?: any) => {
+    const ref = (el?: any) => {};
+    const api = {
+      scrollPrev: () => {},
+      scrollNext: () => {},
+      canScrollPrev: () => true,
+      canScrollNext: () => true,
+      on: (_: string, __: any) => {},
+      off: (_: string, __: any) => {},
+    };
+    return [ref, api];
+  },
+}));
+
+
 // Mock DateCard to avoid heavy internals; keep simple render
 vi.mock('./date-card', () => ({ DateCard: ({ data }: any) => h('div', {}, `card-${data.name}`) }));
 
@@ -28,6 +45,6 @@ describe('DatesCarousel', () => {
   test('renders skeleton when loading', () => {
     render(<DatesCarousel dates={[]} loading={true} />);
     // skeleton renders CardSkeleton elements as Skeleton placeholders
-    expect(document.querySelectorAll('.h-\[20px\]').length).toBeGreaterThan(0);
+    expect(document.querySelectorAll('.flex.gap-4').length).toBeGreaterThan(0);
   });
 });
