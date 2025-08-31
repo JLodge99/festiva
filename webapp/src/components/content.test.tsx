@@ -12,6 +12,9 @@ vi.mock('@festiva/queries/src/axios-client/Query', () => ({
 // mock SelectScrollable to keep tests focused
 vi.mock('./ui/select-scrollable', () => ({ SelectScrollable: ({ data }: any) => h('div', {}, `select-${data?.length}`) }));
 
+// mock useLocalStorage from @uidotdev/usehooks to avoid react/usehooks mismatch in tests
+vi.mock('@uidotdev/usehooks', () => ({ useLocalStorage: (_key: string, initial: any) => [initial, (_v?: any) => {}] }));
+
 import { Content } from './content';
 
 describe('Content component', () => {
