@@ -44,7 +44,7 @@ describe('Content component', () => {
     // Add button should exist and be disabled initially
     const add = screen.getByText('Add').closest('button');
     expect(add).toBeTruthy();
-    expect(add).toHaveAttribute('disabled');
+    expect(add?.hasAttribute('disabled')).toBeTruthy();
   });
 
   test('Add button becomes enabled when selectedCountry is set via SelectScrollable mock', () => {
