@@ -18,6 +18,22 @@ vi.mock('@uidotdev/usehooks', () => ({
   useMediaQuery: (_q: string) => false,
 }));
 
+// mock embla-carousel-react used by Carousel inside DatesCarousel
+vi.mock('embla-carousel-react', () => ({
+  default: (_opts?: any, _plugins?: any) => {
+    const ref = (el?: any) => {};
+    const api = {
+      scrollPrev: () => {},
+      scrollNext: () => {},
+      canScrollPrev: () => true,
+      canScrollNext: () => true,
+      on: (_: string, __: any) => {},
+      off: (_: string, __: any) => {},
+    };
+    return [ref, api];
+  },
+}));
+
 import { Content } from './content';
 
 describe('Content component', () => {
