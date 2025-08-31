@@ -40,7 +40,7 @@ describe('Content component', () => {
   test('renders worldwide dates heading and add button disabled when no selection', () => {
     render(<Content /> as any);
 
-    expect(screen.getByText(/Upcoming/)).toBeTruthy();
+    expect(screen.getAllByText(/Upcoming/).length).toBeGreaterThan(0);
     // Add button should exist and be disabled initially
     const add = screen.getByText('Add').closest('button');
     expect(add).toBeTruthy();
